@@ -1,9 +1,6 @@
-from flask import Flask,render_template,Response
-from flask import request
+
 import logging
-import netron
-import urllib.request
-import _thread
+from flask import Flask, render_template, Response
 
 app = Flask(__name__, static_url_path='/',)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(filename)s - %(levelname)s - %(message)s')
