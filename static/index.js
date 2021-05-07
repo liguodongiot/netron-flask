@@ -83,8 +83,10 @@ host.BrowserHost = class {
                         this._setCookie('consent', 'yes', 30);
                         accept();
                     });
+                    acceptButton.click();
                 }
             };
+
             if (this._getCookie('consent')) {
                 accept();
             }
