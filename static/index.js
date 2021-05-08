@@ -114,7 +114,8 @@ host.BrowserHost = class {
     }
 
     async downloadfile(){
-        var response =  await axios.get('/downloadfile', {responseType: 'blob'});
+        const reqUrl = '/downloadfile'+'?modelFile='+model_file_str
+        var response =  await axios.get(reqUrl, {responseType: 'blob'});
         console.log(response);
         // 创建Blob对象，设置文件类型
         const temp = new window.File(
