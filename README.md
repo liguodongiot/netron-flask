@@ -7,7 +7,7 @@ netron原生模型可视化，需要启动应用，然后通过浏览器选择�
 ## 执行步骤
 ```shell
 # 安装依赖包
-pip install -r requirements
+pip install -r requirements.txt
 
 # 启动应用
 python app.py
