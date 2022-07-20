@@ -134,6 +134,7 @@ host.BrowserHost = class {
         }
     }
 
+
     start() {
         this.window.addEventListener('error', (e) => {
             this.exception(e.error, true);

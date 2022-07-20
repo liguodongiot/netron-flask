@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>点名</title>
+	</head>
+	<script type="text/javascript">
+		var arr = new Array();
+		var temp_str ="0";
+		var i = 0;
+		function showPreview(source){
+			var input = source;
+			console.log(input.files[0])
+			var reader = new FileReader();
+			reader.readAsText(input.files[0]);
+			console.log(reader)
+			reader.onload = function() {
+				if(reader.result) {
+			   //显示文件内容
+					temp_str = reader.result;
+				}
+			};
+		}
+		function getDname()
+		{
+			if(temp_str=="0")
+			{
+				alert("请先上传文件");
+			}
+			else
+			{
+				var temp = Math.random()*arr.length;
+				arr = temp_str.split(" ");
+				document.getElementById("text").value=arr[Math.floor(temp)];
+			}
+		}
+	</script>
+	<body>
+		<div id="div" align="center" style="width: 300px;height: 300px; background-color: #FDEF85; margin: auto;">
+			<br>
+			<input type="file" name="file" value="上传文件" onchange="showPreview(this)" />
+			<br>
+			<br>
+			<br>
+			<br>
+			<input type="text" id="text" disabled="false">
+			<br>
+			<br>
+			<input type="button" value="开始点名" onclick="getDname()">
+		</div>
+	</body>
+</html>
+

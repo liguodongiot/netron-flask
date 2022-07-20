@@ -3,7 +3,9 @@ from flask import Flask, render_template, request, Response
 from pathlib import Path
 
 app = Flask(__name__, static_url_path='/', )
+
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(filename)s - %(levelname)s - %(message)s')
+
 file_type_list = [".onnx", ".pb", ".meta", ".tflite", ".lite",
                   ".tfl", ".keras", ".h5", ".hd5", ".hdf5", ".json", ".model", ".mar",
                   ".params", ".param", ".armnn", ".mnn", ".ncnn", ".tnnproto", ".tmfile", ".ms", ".nn",
@@ -51,6 +53,11 @@ def index():
         logging.info("不支持该格式文件")
         return render_template('error.html')
     return render_template('index.html', model_file=model_file)
+
+
+@app.route('/read_file', methods=["GET"])
+def read_file():
+    return render_template('read_file.html')
 
 
 if __name__ == '__main__':
